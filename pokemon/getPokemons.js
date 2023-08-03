@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const count = 10;
+const count = 20;
 //const count = 1281;
 export const getPokemons = async () => {
 
