@@ -7,6 +7,9 @@ flex-direction: column;
 justify-content: center;
 width: 350px;
 
+> h1{
+  text-align: center;
+}
 
 
 `;
