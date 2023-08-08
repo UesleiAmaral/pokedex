@@ -1,10 +1,12 @@
 import { ContainerImage } from "./style";
 
-export const LinkImage = () => {
+export const LinkImage = (props) => {
+  const myProps = { ...props };
+  
   return (
-    <ContainerImage>
+    <ContainerImage {...props}>
       <img
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+        src={myProps.image}
         alt=""
       />
     </ContainerImage>
