@@ -1,9 +1,9 @@
 import express from 'express';
-import { getPokemons } from './pokemon/getPokemons.js';
+import { allPokemons } from './pokemon/index.js';
 
 const app = express();
 const PORT = 3030;
-const pokemons = await getPokemons();
+const pokemons = allPokemons;
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
@@ -11,7 +11,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-console.log(pokemons)
 app.get('/pokemons', (req, res) => {
   res.send(pokemons);
 
