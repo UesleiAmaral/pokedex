@@ -116,3 +116,82 @@ export const colors = {
 
 
 }
+
+export const testType = (type) => {
+
+  const types = type.toLowerCase();
+
+  if (types == "normal") {
+    return colors.normal;
+
+  }
+  else if (types == "fire") {
+    return colors.fire;
+
+  }
+  else if (types == "fighting") {
+    return colors.fighting;
+
+  }
+  else if (types == "water") {
+    return colors.water;
+
+  }
+  else if (types == "flying") {
+    return colors.flying;
+
+  }
+  else if (types == "grass") {
+    return colors.grass;
+
+  }
+  else if (types == "poison") {
+    return colors.poison;
+
+  }
+  else if (types == "electric") {
+    return colors.electric;
+
+  }
+  else if (types == "ground") {
+    return colors.ground;
+
+  }
+  else if (types == "psychic") {
+    return colors.psychic;
+
+  }
+  else if (types == "rock") {
+    return colors.rock;
+
+  }
+  else if (types == "ice") {
+    return colors.ice;
+
+  }
+  else if (types == "bug") {
+    return colors.bug;
+
+  }
+  else if (types == "dragon") {
+    return colors.dragon;
+
+  }
+  else if (types == "ghost") {
+    return colors.ghost;
+
+  }
+  else if (types == "dark") {
+    return colors.dark;
+
+  }
+  else if (types == "steel") {
+    return colors.steel;
+
+  }
+  else if (types == "fairy") {
+    return colors.fairy;
+
+  }
+
+}

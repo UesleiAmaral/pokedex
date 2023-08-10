@@ -14,9 +14,9 @@ app.use(function (req, res, next) {
 app.get('/pokemons', (req, res) => {
   res.send(pokemons);
 
-})
+});
 
 app.listen(PORT, () => {
   console.log(`Server is Running on http://localhost:${PORT}`);
 
-})
+});
