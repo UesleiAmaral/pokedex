@@ -11,10 +11,25 @@ app.use(function (req, res, next) {
   next();
 });
 
+
+
 app.get('/pokemons', (req, res) => {
   res.send(pokemons);
 
 });
+
+app.get('/pokemons/:name', (req, res, next) => {
+  const name = req.params.name;
+
+  for (let i = 0; i < name.length; i++) {
+
+    const pokemon = pokemons.filter(pokemon => pokemon.name[i] === name);
+    res.send(pokemon);
+  }
+
+  
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is Running on http://localhost:${PORT}`);
