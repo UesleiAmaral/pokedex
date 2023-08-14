@@ -5,26 +5,13 @@ import { Section } from "../Section";
 import { Li } from "../Li";
 
 
-import axios from "axios";
-import { useState, useEffect } from "react";
+export const Card = (props) => {
 
-export const Card = () => {
-  const [listing, setListing] = useState([]);
-
-  useEffect(() => {
-    const getPokemons = async () => {
-      await axios
-        .get("http://localhost:3030/pokemons")
-        .then((res) => setListing(res.data))
-        .catch((error) => console.log(error));
-    };
-
-    getPokemons();
-  }, []);
+  const myProps = {...props};
 
   return (
     <>
-      {listing.map((pokemon) => (
+      {myProps.pokemons.map((pokemon) => (
         <ContainerCard
           key={pokemon.id}
           backgroundColor={pokemon.types[0].colors.primaryColor}
@@ -42,11 +29,16 @@ export const Card = () => {
           <Section
             backgroundColor={pokemon.types[0].colors.secondaryColor}
             title={"Abilities"}
-            height={"80px"}
+            height={"96px"}
           >
             <ul>
               {pokemon.abilities.map((item, i) => (
-                <Li key={i}>{item}</Li>
+                <Li
+                  key={i}
+                  borderColorLi={"black"}
+                >
+                  {item}
+                </Li>
               ))}
             </ul>
           </Section>
@@ -54,6 +46,7 @@ export const Card = () => {
           <Section
             backgroundColor={pokemon.types[0].colors.secondaryColor}
             title={"Type"}
+            height={"56px"}
           >
             <ul>
               {pokemon.types.map((item, i) => (
@@ -71,11 +64,5 @@ export const Card = () => {
       ))}
     </>
   );
-  /*    return (
-      <ContainerCard>
-                  <SectionStats stats={pokemon.stats.map((elem) => elem + " ")} />
 
-      <LinkImage />
-      </ContainerCard>
-    );*/
 };

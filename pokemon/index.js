@@ -6,7 +6,7 @@ export const allData = [];
 export const allPokemons = [];
 
 //const count = 1281;
-const count = 30;
+const count = 50;
 
 for (let i = 1; i <= count; i++) {
   console.log(`Buscando Item ${i} em ${URL}/${i}/`);

@@ -5,7 +5,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 gap: 10px;
-width: 350px;
+width: 300px;
 background-color: ${(props) => props.backgroundColor || "#BF4F74"};
 padding:1rem;
 border: 2px solid ${(props) => props.borderColor || "#000000"};
