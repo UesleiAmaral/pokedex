@@ -1,12 +1,9 @@
 import express from "express";
-import { allPokemons } from '../pokemon/index.js';
-import db from "../db.json" assert { type: "json" };
-
-allPokemons.map((pokemon) => {
-  db.push(pokemon);
-})
+import { getPokemons } from '../dataBase/dbConnect.js';
+import { createPokemon } from "../pokemon/index.js";
 
 const router = express.Router();
+
 
 router.get('/', (req, res) => {
   try {
@@ -32,10 +29,15 @@ router.get('/', (req, res) => {
 
   };
 });
+const pokemons = await getPokemons();
 
-router.get("/pokemons", (req, res) => {
+createPokemon()
+
+console.log(pokemons)
+
+router.get("/pokemons", async (req, res) => {
   try {
-    res.send(db);
+    res.send(await getPokemons());
 
   } catch (error) {
     console.log(error);
@@ -48,7 +50,7 @@ router.get('/pokemons/:name', (req, res, next) => {
   const name = req.params.name;
 
   try {
-    const pokemon = db.filter(element => (element.name.substring(0, name.length) === name));
+    const pokemon = allPokemons.filter(element => (element.name.substring(0, name.length) === name));
     res.send(pokemon);
 
   } catch (error) {

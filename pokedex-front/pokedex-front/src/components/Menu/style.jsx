@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
 export const ContainerNavbar = styled.nav`
+position: relative;
   width: 100%;
   height: 8vh;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 
   background-color: aliceblue;
 
   >ul{
-    width: 50%;
     display: flex;
-    justify-content: space-around;
+    padding-right: 35px;
+    gap: 30px;
   }
 
 `;
