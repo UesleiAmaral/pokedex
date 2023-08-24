@@ -7,6 +7,7 @@ import { AllPokemons } from "../pages/AllPokemons";
 import { CreateCard } from "../pages/CreateCard";
 
 const ContainerApp = styled.main`
+height: 100vh;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;

@@ -33,8 +33,6 @@ const pokemons = await getPokemons();
 
 createPokemon()
 
-console.log(pokemons)
-
 router.get("/pokemons", async (req, res) => {
   try {
     res.send(await getPokemons());
