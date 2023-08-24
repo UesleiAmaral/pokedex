@@ -1,5 +1,7 @@
 import express from 'express';
 import router from "./routes/routes.js";
+import { updateDataBase } from "./getPokemons/index.js";
+
 
 const app = express();
 const PORT = 3030;
@@ -10,10 +12,16 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.urlencoded({ extended: true }));
+
+
 app.use('/', router);
 
 app.listen(PORT, () => {
   console.log(`Server is Running on http://localhost:${PORT}`);
+
+  updateDataBase()
+
 
 });
 
