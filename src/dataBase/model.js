@@ -3,16 +3,6 @@ import { connection } from "./connection.js";
 
 const supabase = connection();
 
-export const getPokemons = async () => {
-  try {
-    const { data, error } = await supabase.from("pokemons").select();
-
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 export const createPokemon = async (pokemon) => {
   try {
     await supabase
@@ -33,6 +23,16 @@ export const createPokemon = async (pokemon) => {
   }
 };
 
-export const deletePokemon = async (id) => {};
+export const readPokemons = async () => {
+  try {
+    const { data, error } = await supabase.from("pokemons").select();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const updatePokemon = async (id) => {};
+
+export const deletePokemon = async (id) => {};

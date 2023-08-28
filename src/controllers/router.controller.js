@@ -1,6 +1,6 @@
-import { getPokemons } from "../dataBase/model.js";
+import { readPokemons } from "../dataBase/model.js";
 
-const pokemons = await getPokemons();
+const pokemons = await readPokemons();
 const teste = [];
 
 export const controllers = {
@@ -59,6 +59,11 @@ export const controllers = {
   },
 
   testPostItem(req, res) {
-    res.send(teste[req.params.id]);
+    const id = req.params.id;
+
+    const item = teste.filter((element) => element.id === id);
+    console.log(item);
+
+    res.send(item);
   },
 };

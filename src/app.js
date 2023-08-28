@@ -1,11 +1,12 @@
 import "dotenv/config";
 import express from "express";
-import router from "./routes/router.js";
+import { expressRouters } from "./routes/router.js";
 
 export const application = () => {
+  const router = expressRouters();
   const app = express();
 
-  //app.use(express.urlencoded({ extended: true }));
+  app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   app.use(cors);
   app.use(router);
