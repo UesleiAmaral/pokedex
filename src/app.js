@@ -21,7 +21,5 @@ const cors = (req, res, next) => {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
 
-  console.log("CORS enabled for all origin!!");
-
   next();
 };

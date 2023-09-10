@@ -1,10 +1,17 @@
-import { createPokemon, postPokemonUser, readPokemons } from "../dataBase/dbModel.js";
+import {
+  updateDB,
+  deletePokemon,
+  postPokemonUser,
+  readPokemons,
+  updatePokemon,
+  filterPokemon,
+} from "../dataBase/dbModel.js";
 
-const pokemons = await readPokemons();
-const teste = [];
+let pokemons = await readPokemons();
 
 export const controllers = {
-  getAll(req, res) {
+  async getAll(req, res) {
+    pokemons = await readPokemons();
     try {
       res.send(pokemons);
     } catch (error) {
@@ -51,21 +58,50 @@ export const controllers = {
     }
   },
 
-  postItem(req, res) {
+  async postItem(req, res) {
     const pokemon = req.body;
-    console.log(pokemon);
-    res.send(pokemon);
-    
-    postPokemonUser(pokemon, true);
 
+    const data = await postPokemonUser(pokemon, true);
+
+    if (data.status == 201) {
+      return res.send({
+        statusText: data.statusText,
+        statusCode: data.status,
+      });
+    }
+    res.send({
+      statusText: data.statusText,
+      statusDetails: data.error.details,
+    });
   },
 
-  testPostItem(req, res) {
-    const id = req.params.id;
+  async deleteItem(req, res) {
+    const { id } = req.params;
+    const data = await deletePokemon(id);
+    res.send({
+      status: data.status,
+      statusMsg: data.statusText,
+    });
+  },
 
-    const item = teste.filter((element) => element.id === id);
-    console.log(item);
+  async updateItem(req, res) {
+    const body = req.body;
+    const itemFilter = await filterPokemon(body.id);
 
-    res.send(item);
+    if (itemFilter.length === 1) {
+      const data = await updatePokemon(body.id, body);
+
+      res.send({
+        status: data.status,
+        statusMsg: data.statusText,
+      });
+
+      return;
+    }
+
+    res.send({
+      status: 205,
+      statusMsg: "Reset Content",
+    });
   },
 };

@@ -8,14 +8,24 @@ export const expressRouters = () => {
   router.get("/", controllers.root);
   router.get("/pokemons", middleware.validateGet, controllers.getAll);
   router.get("/pokemons/:name", controllers.filterItemByName);
+
   router.post(
     "/createNewPokemon/",
     middleware.validatePost,
     controllers.postItem
   );
 
-  //teste para a rota post
-  router.get("/createTest/:id", controllers.testPostItem);
+  router.delete(
+    "/deletePokemon/:id",
+    middleware.validateDelete,
+    controllers.deleteItem
+  );
+
+  router.put(
+    "/updatePokemon/",
+    middleware.validateUpdate,
+    controllers.updateItem
+  );
 
   return router;
 };

@@ -1,11 +1,11 @@
 import 'dotenv/config';
 import axios from "axios";
-import { createPokemon } from '../dataBase/dbModel.js';
+import { updateDB } from '../dataBase/dbModel.js';
 
 const URL_API = `https://pokeapi.co/api/v2/pokemon`;
 
 //const count = 1281;
-const count = 10;
+const count = 500;
 
 export const updateDataBase  = async () => {
 
@@ -17,7 +17,7 @@ export const updateDataBase  = async () => {
         return res.data;
       })
 
-      createPokemon(await data, false);
+      updateDB(await data, false);
 
   };
 
