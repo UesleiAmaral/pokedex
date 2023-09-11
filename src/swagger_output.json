@@ -7,7 +7,9 @@
   },
   "host": "pokedex-api-4hn5.onrender.com",
   "basePath": "",
-  "schemes": ["https"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/": {
       "get": {
@@ -60,7 +62,6 @@
           {
             "name": "body",
             "in": "body",
-            "content": "application/x-www-form-urlencoded",
             "schema": {
               "type": "object",
               "properties": {
