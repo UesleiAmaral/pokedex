@@ -10,7 +10,7 @@ export const expressRouters = () => {
 
   router.post(
     "/createNewPokemon/",
-    //middleware.validatePost,
+    middleware.validatePost,
     controllers.postItem
   );
 
@@ -22,7 +22,7 @@ export const expressRouters = () => {
 
   router.put(
     "/updatePokemon/",
-    //middleware.validateUpdate,
+    middleware.validateUpdate,
     controllers.updateItem
   );
 

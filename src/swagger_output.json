@@ -6,21 +6,12 @@
     "description": ""
   },
   "host": "pokedex-api-4hn5.onrender.com",
-  "basePath": "",
+  "basePath": "/",
   "schemes": [
+    "http",
     "https"
   ],
   "paths": {
-    "/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/pokemons": {
       "get": {
         "description": "",
