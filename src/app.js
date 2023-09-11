@@ -21,9 +21,8 @@ const cors = (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
-    "ontent-Type, api_key, Authorization"
+    "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.header("X-Content-Type-Options", "text/html");
 
   next();
 };

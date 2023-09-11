@@ -7,11 +7,10 @@ import {
   filterPokemon,
 } from "../dataBase/dbModel.js";
 
-let pokemons = await readPokemons();
 
 export const controllers = {
   async getAll(req, res) {
-    pokemons = await readPokemons();
+    const pokemons = await readPokemons();
     try {
       res.send(pokemons);
     } catch (error) {
@@ -29,8 +28,9 @@ export const controllers = {
     }
   },
 
-  filterItemByName(req, res) {
+  async filterItemByName(req, res) {
     const name = req.params.name;
+    const pokemons = await readPokemons();
 
     try {
       const pokemon = pokemons.filter(
