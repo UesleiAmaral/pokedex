@@ -5,8 +5,8 @@
     "title": "POKEDEX API",
     "description": ""
   },
-  "host": "pokedex-api-4hn5.onrender.com/",
-  "basePath": "/",
+  "host": "pokedex-api-4hn5.onrender.com",
+  "basePath": "",
   "schemes": [
     "http",
     "https"
