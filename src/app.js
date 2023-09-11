@@ -2,6 +2,8 @@ import "dotenv/config";
 import express from "express";
 import { expressRouters } from "./routes/router.js";
 
+import swaggerRouter from "./routes/swagger.route.cjs";
+
 export const application = () => {
   const router = expressRouters();
   const app = express();
@@ -10,6 +12,7 @@ export const application = () => {
   //app.use(express.json());
   app.use(cors);
   app.use(router);
+  app.use("/", swaggerRouter);
 
   return app;
 };
@@ -18,8 +21,9 @@ const cors = (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "ontent-Type, api_key, Authorization"
   );
+  res.header("X-Content-Type-Options", "text/html");
 
   next();
 };

@@ -22,21 +22,7 @@ export const controllers = {
 
   root(req, res) {
     try {
-      res.send(
-        `
-        <h1 style="text-align:center;">
-          PokedeX API
-        <h1/>
-        <p style="font-size:22px;">[Lista todos os pokemons]:
-          <span style="font-weight:300; font-size:22px;">
-            /pokemons
-          <span/>
-        <p/>
-        <p style="font-size:22px;">[Pesquisar Pokemons]:
-          <span style="font-weight:300; font-size:22px;"> /pokemons/"NOME DO POKEMON " = [ Podendo ser pesquisado apenas os primeiros caracteres do nome ]<span/>
-        <p/>
-      `
-      );
+      res.send();
     } catch (error) {
       console.log(error);
       res.sendStatus(500);
