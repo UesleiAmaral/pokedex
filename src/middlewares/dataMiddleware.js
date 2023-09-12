@@ -1,7 +1,6 @@
 export const middleware = {
   validatePost(req, res, next) {
     const data = req.body;
-
     if (data.name == undefined) {
       return res.send({ message: "name cannot be empty" });
     }

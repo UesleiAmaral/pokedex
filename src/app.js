@@ -8,8 +8,8 @@ export const application = () => {
   const router = expressRouters();
   const app = express();
 
-  app.use(express.urlencoded({ extended: true }));
-  //app.use(express.json());
+  //app.use(express.urlencoded({ extended: true }));
+  app.use(express.json());
   app.use(cors);
   app.use(router);
   app.use("/", swaggerRouter);
