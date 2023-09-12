@@ -7,14 +7,11 @@
   },
   "host": "pokedex-api-4hn5.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "http",
-    "https"
-  ],
+  "schemes": ["http", "https"],
   "paths": {
     "/pokemons": {
       "get": {
-        "description": "",
+        "description": "Rota referente a listagem de todos os Pokémons",
         "responses": {
           "200": {
             "description": "OK"
@@ -27,7 +24,7 @@
     },
     "/pokemons/{name}": {
       "get": {
-        "description": "",
+        "description": "Rota referente a busca e listagem de todos os Pokémons, pelo nome completo ou por cada caractere do nome",
         "parameters": [
           {
             "name": "name",
@@ -48,7 +45,7 @@
     },
     "/createNewPokemon/": {
       "post": {
-        "description": "",
+        "description": "Cria um novo Pokémon todos os dados são requeridos",
         "parameters": [
           {
             "name": "body",
@@ -72,7 +69,7 @@
     },
     "/deletePokemon/{id}": {
       "delete": {
-        "description": "",
+        "description": "Deleta um Pokémon que contém o ID passado",
         "parameters": [
           {
             "name": "id",
@@ -90,7 +87,7 @@
     },
     "/updatePokemon/": {
       "put": {
-        "description": "",
+        "description": "Atualiza os dados de cada Pokémon",
         "parameters": [
           {
             "name": "body",
@@ -99,7 +96,10 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "example": "any"
+                  "example": "00"
+                },
+                "image": {
+                  "example": "image.png"
                 }
               }
             }
