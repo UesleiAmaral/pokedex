@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Pokedex API",
-    "description": " API referente a todos os pokémons retirados da API [ pokeapi.co ].\n\n Filtrado e organizado por mim.😃\n\n Também é possível adicionar pokémons personalizados 🥸!",
+    "description": " API referente a todos os pokémons retirados da API [ pokeapi.co ].\n\n Filtrado e organizado por mim.😃\n\n Também é possível adicionar pokémons personalizados 🥸!\n\n IDs Pokémons limitado em 100 itens [ 01 à 100 ]. ( total pode chegar a 1281 itens ).\n\n IDs Pokémons personalizados [ apartir de 102 ].",
     "version": "1.0.0",
     "contact": {
       "name": "Ueslei Amaral",

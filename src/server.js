@@ -8,6 +8,6 @@ const HOST = config.get("Customer.connectionConfig.host");
 const PORT = config.get("Customer.connectionConfig.port");
 
 app.listen(PORT, () => {
-  console.log(`Server is Running on ${HOST}${PORT}`);
+  console.log(`Server is Running on PORT ${PORT}`);
 
 });

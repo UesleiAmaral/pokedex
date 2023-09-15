@@ -5,7 +5,7 @@ import { updateDB } from '../dataBase/dbModel.js';
 const URL_API = `https://pokeapi.co/api/v2/pokemon`;
 
 //const count = 1281;
-const count = 500;
+const count = 100;
 
 export const updateDataBase  = async () => {
 

@@ -80,6 +80,7 @@ export const controllers = {
 
   async updateItem(req, res) {
     const body = req.body;
+    
     const itemFilter = await filterPokemon(body.id);
 
     if (itemFilter.length === 1) {
@@ -94,8 +95,8 @@ export const controllers = {
     }
 
     res.send({
-      status: 205,
-      statusMsg: "id cannot be empty",
+      status: 404,
+      statusMsg: "ID not found",
     });
   },
 };
