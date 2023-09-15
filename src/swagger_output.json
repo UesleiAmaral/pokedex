@@ -102,7 +102,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer"
           }
         ],
         "responses": {
@@ -141,7 +141,7 @@
         "properties": {
           "id": {
             "type": "integer",
-            "example": 404
+            "example": 102
           },
           "name": {
             "type": "string",

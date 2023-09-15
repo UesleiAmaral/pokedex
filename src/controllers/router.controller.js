@@ -8,6 +8,7 @@ import {
 } from "../dataBase/dbModel.js";
 
 export const controllers = {
+  //RETORNAR OS DADOS ORGANIZADOS DE FORMA CRESCENTE
   async getAll(req, res) {
     const pokemons = await readPokemons();
     try {
