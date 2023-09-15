@@ -9,7 +9,7 @@
       "url": "https://www.linkedin.com/in/ueslei-amaral-dev/"
     }
   },
-  "host": "localhost:8080",
+  "host": "pokedex-api-4hn5.onrender.com",
   "basePath": "/v1",
   "schemes": ["http", "https"],
   "paths": {
