@@ -9,9 +9,8 @@
 ![.env](https://img.shields.io/badge/.ENV-orange)
 ![NODE](https://img.shields.io/badge/-NODE-brightgreen)
 
+<img src="https://i.ibb.co/FK8WJFv/image-2.png" alt="image-2" border="0">
 
-
-<img src="" alt="exemplo imagem" alignItem="center">
 
 > Projeto Pessoal, dados retirados da API [ <a href="https://pokeapi.co" target="blank_">pokeapi.co</a> ]. Filtrado e organizado por mim. 😃
 
@@ -58,43 +57,34 @@ npm start
 ### Essa rota será responsável por listar todos os pokémons:
 ` v1/pokemons`
 
-> <img src="" alt="image-1" border="0" >
+> <img src="https://i.ibb.co/Ctn1hFk/image-3.png" alt="image-3" border="0">
 
 ### Essa rota será responsável por buscar por sequência de caracteres. 
 ` v1/pokemons/{name}`
 
-> <img src="" alt="image-1" border="0" >
+> <img src="https://i.ibb.co/wJy9pk7/image-4.png" alt="image-4" border="0">
 
 ### Essa rota será responsável por buscar por um pokémon pelo ID. 
 ` v1/pokemon/{id}`
 
-> <img src="" alt="image-1" border="0" >
+> <img src="https://i.ibb.co/5XQ6XGH/image-5.png" alt="image-5" border="0">
 
 ### Essa rota será responsável por criar um pokémon personalizado para o usuário. 
 ` v1/createNewPokemon/`
 
-> <img src="" alt="image-1" border="0" >
+> <img src="https://i.ibb.co/JFsnmv8/image-8.png" alt="image-8" border="0">
 
 ### Essa rota será responsável por DELETAR um item buscando pelo ID. 
 ### ⚠️ Atenção delete apenas se tiver certeza, essa operação é irreversível. 
 ` v1/deletePokemon/{id}`
 
-> <img src="" alt="image-1" border="0" >
+> <img src="https://i.ibb.co/9WZqgPb/image-9.png" alt="image-9" border="0">
 
 ### Essa rota será responsável por Atualizar um pokémon, buscando pelo ID. 
 ` /updatePokemon/`
 
-  <img src="" alt="image-1" border="0" >
+> <img src="https://i.ibb.co/1bm7PPC/image-10.png" alt="image-10" border="0">
 
-```
-5. Caso queira favoritar o usuário clique na estrela.
-```
-<img src="" alt="image-1" border="0" width="500" >
 
-```
-6. O usuário favoritado fica salvo até ter a estrela removida.
-```
 
-<img src="" alt="image-1" border="0" width="500" >
-
-[⬆ Voltar ao topo](#pokedex)
+[⬆ Voltar ao topo](#pokedex-API)
