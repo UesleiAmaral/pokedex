@@ -14,10 +14,9 @@ export const middleware = {
   },
 
   validateDelete(req, res, next) {
-    if (req.params.id == undefined) {
-      return res.send({ message: "id cannot be empty" });
+    if (isNaN(req.params.id)) {
+      return res.send({ message: "NaN" });
     }
-
     next();
   },
 
@@ -28,5 +27,24 @@ export const middleware = {
       return res.send({ message: "id cannot be empty" });
     }
     next();
+  },
+
+  validateFilterByName(req, res, next) {
+
+    if (!isNaN(req.params.name)) {
+      return res.send({ message: "Nome não pode ser um numero!" });
+    }
+
+    next();
+  },
+
+  validateFilterById(req, res, next) {
+
+    if (isNaN(req.params.id)) {
+      return res.send({ message: "NaN" });
+    }
+
+    next();
+
   },
 };

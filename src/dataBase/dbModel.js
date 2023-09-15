@@ -54,14 +54,28 @@ export const updatePokemon = async (id, data) => {
     console.log("Error " + error);
   }
 
-  console.log("data id " + id);
-  console.log(" data sb " + data);
 };
 
 export const deletePokemon = async (id) => {
   try {
-    const data = await supabase.from("pokemons").delete().eq("id", id);
-    return data;
+    //FILTRAR SE EXISTE ESTE ID
+    const itemFilter = await filterPokemon(id)
+    if (itemFilter.length === 1) {
+      // SE EXISTE! DELETA
+      const data = await supabase.from("pokemons").delete().eq("id", id);
+      // E RETORNA
+      console.log(data)
+      return {
+        status: "200",
+        statusMsg: "OK",
+      };
+    }
+
+    // SE NÃO EXISTE RETORNAR A MSG INFORMANDO QUE O ID NÃO EXISTE
+    return {
+      status: 404,
+      statusMsg: "id not found",
+    };
   } catch (error) {
     console.log("Error " + error);
   }

@@ -7,21 +7,11 @@ import {
   filterPokemon,
 } from "../dataBase/dbModel.js";
 
-
 export const controllers = {
   async getAll(req, res) {
     const pokemons = await readPokemons();
     try {
       res.send(pokemons);
-    } catch (error) {
-      console.log(error);
-      res.sendStatus(500);
-    }
-  },
-
-  root(req, res) {
-    try {
-      res.send();
     } catch (error) {
       console.log(error);
       res.sendStatus(500);
@@ -36,12 +26,34 @@ export const controllers = {
       const pokemon = pokemons.filter(
         (element) => element.name.substring(0, name.length) === name
       );
+
+      if (pokemon.length == 0) {
+        res.send({
+          mensage: "Item not found",
+        });
+
+        return;
+      }
       res.send(pokemon);
-      console.log(`Filter applied returned ${pokemon.length} Results`);
     } catch (error) {
       console.log(error);
       res.sendStatus(500);
     }
+  },
+
+  async filterItemById(req, res) {
+    const body = req.params.id;
+
+    const itemFilter = await filterPokemon(body);
+
+    if (itemFilter.length == 1) {
+      return res.send(itemFilter);
+    }
+
+    res.send({
+      status: 404,
+      statusMsg: "id not found",
+    });
   },
 
   async postItem(req, res) {
@@ -62,12 +74,8 @@ export const controllers = {
   },
 
   async deleteItem(req, res) {
-    const { id } = req.params;
-    const data = await deletePokemon(id);
-    res.send({
-      status: data.status,
-      statusMsg: data.statusText,
-    });
+    const data = await deletePokemon(req.params.id);
+    res.send(data);
   },
 
   async updateItem(req, res) {
@@ -78,8 +86,8 @@ export const controllers = {
       const data = await updatePokemon(body.id, body);
 
       res.send({
-        status: data.status,
-        statusMsg: data.statusText,
+        status: "200",
+        statusMsg: "OK",
       });
 
       return;
@@ -87,7 +95,7 @@ export const controllers = {
 
     res.send({
       status: 205,
-      statusMsg: "Reset Content",
+      statusMsg: "id cannot be empty",
     });
   },
 };

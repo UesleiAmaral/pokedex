@@ -1,17 +1,23 @@
 {
   "swagger": "2.0",
   "info": {
+    "title": "Pokedex API",
+    "description": " API referente a todos os pokémons retirados da API [ pokeapi.co ].\n\n Filtrado e organizado por mim.😃\n\n Também é possível adicionar pokémons personalizados 🥸!",
     "version": "1.0.0",
-    "title": "POKEDEX API",
-    "description": ""
+    "contact": {
+      "name": "Ueslei Amaral",
+      "url": "https://www.linkedin.com/in/ueslei-amaral-dev/"
+    }
   },
-  "host": "pokedex-api-4hn5.onrender.com",
-  "basePath": "/",
+  "host": "localhost:8080",
+  "basePath": "/v1",
   "schemes": ["http", "https"],
   "paths": {
     "/pokemons": {
       "get": {
-        "description": "Rota referente a listagem de todos os Pokémons",
+        "summary": "Listagem de todos os Pokémons",
+        "description": "Essa rota será responsável por listar todos os pokémons",
+        "tags": ["Rotas Pokémons"],
         "responses": {
           "200": {
             "description": "OK"
@@ -24,7 +30,9 @@
     },
     "/pokemons/{name}": {
       "get": {
-        "description": "Rota referente a busca e listagem de todos os Pokémons, pelo nome completo ou por cada caractere do nome",
+        "summary": "Buscar pelo nome",
+        "description": "Essa rota será responsável por buscar por sequência de caracteres. ",
+        "tags": ["Rotas Pokemons"],
         "parameters": [
           {
             "name": "name",
@@ -43,20 +51,37 @@
         }
       }
     },
+    "/pokemon/{id}": {
+      "get": {
+        "summary": "Buscar pelo ID",
+        "description": "Essa rota será responsável por buscar por um pokémon pelo ID. ",
+        "tags": ["Rotas Pokemons"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/createNewPokemon/": {
       "post": {
-        "description": "Cria um novo Pokémon todos os dados são requeridos",
+        "summary": "Criar um pokemon personalizado",
+        "description": "Essa rota será responsável por buscar por criar um pokémon personalizado para o usuário.",
+        "tags": ["Rotas Pokemons"],
         "parameters": [
           {
             "name": "body",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/components/schemas/pokemons-and-user"
             }
           }
         ],
@@ -69,7 +94,9 @@
     },
     "/deletePokemon/{id}": {
       "delete": {
-        "description": "Deleta um Pokémon que contém o ID passado",
+        "summary": "Deleta um pokémon pelo ID",
+        "description": "Essa rota será responsável por DELETAR um item buscando pelo ID.\n\n ⚠️ Atenção delete apenas se tiver certeza, essa operação é irreversível.",
+        "tags": ["Rotas Pokemons"],
         "parameters": [
           {
             "name": "id",
@@ -87,21 +114,15 @@
     },
     "/updatePokemon/": {
       "put": {
-        "description": "Atualiza os dados de cada Pokémon",
+        "summary": "Atualiza um Pokémons",
+        "description": "Essa rota será responsável por Atualizar um pokémon, buscando pelo ID.",
+        "tags": ["Rotas Pokemons"],
         "parameters": [
           {
             "name": "body",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "example": "00"
-                },
-                "image": {
-                  "example": "image.png"
-                }
-              }
+              "$ref": "#/components/schemas/pokemons-and-user"
             }
           }
         ],
@@ -110,6 +131,78 @@
             "description": "OK"
           }
         }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "pokemons-and-user": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 404
+          },
+          "name": {
+            "type": "string",
+            "example": "luxio"
+          },
+          "image": {
+            "type": "string",
+            "example": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/404.svg"
+          },
+          "abilities": {
+            "type": "array",
+            "example": ["rivalry", "intimidate", "guts"]
+          },
+          "stats": {
+            "type": "array",
+            "example": [
+              {
+                "name": "hp",
+                "base_stat": 60
+              },
+              {
+                "name": "attack",
+                "base_stat": 85
+              },
+              {
+                "name": "defense",
+                "base_stat": 49
+              },
+              {
+                "name": "special-attack",
+                "base_stat": 60
+              },
+              {
+                "name": "special-defense",
+                "base_stat": 49
+              },
+              {
+                "name": "speed",
+                "base_stat": 60
+              }
+            ]
+          },
+          "types": {
+            "type": "array",
+            "example": [
+              {
+                "name": "electric",
+                "colors": {
+                  "borderColor": "#A1871F",
+                  "primaryColor": "#F8D030",
+                  "secondaryColor": "#FAE078"
+                }
+              }
+            ]
+          },
+          "is_user": {
+            "type": "boolean",
+            "example": "false"
+          }
+        },
+        "required": ["name", "image", "id"]
       }
     }
   }
