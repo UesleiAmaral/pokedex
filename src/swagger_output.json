@@ -32,7 +32,7 @@
       "get": {
         "summary": "Buscar pelo nome",
         "description": "Essa rota será responsável por buscar por sequência de caracteres. ",
-        "tags": ["Rotas Pokemons"],
+        "tags": ["Rotas Pokémons"],
         "parameters": [
           {
             "name": "name",
@@ -55,7 +55,7 @@
       "get": {
         "summary": "Buscar pelo ID",
         "description": "Essa rota será responsável por buscar por um pokémon pelo ID. ",
-        "tags": ["Rotas Pokemons"],
+        "tags": ["Rotas Pokémons"],
         "parameters": [
           {
             "name": "id",
@@ -75,7 +75,7 @@
       "post": {
         "summary": "Criar um pokemon personalizado",
         "description": "Essa rota será responsável por buscar por criar um pokémon personalizado para o usuário.",
-        "tags": ["Rotas Pokemons"],
+        "tags": ["Rotas Pokémons"],
         "parameters": [
           {
             "name": "body",
@@ -96,7 +96,7 @@
       "delete": {
         "summary": "Deleta um pokémon pelo ID",
         "description": "Essa rota será responsável por DELETAR um item buscando pelo ID.\n\n ⚠️ Atenção delete apenas se tiver certeza, essa operação é irreversível.",
-        "tags": ["Rotas Pokemons"],
+        "tags": ["Rotas Pokémons"],
         "parameters": [
           {
             "name": "id",
@@ -116,7 +116,7 @@
       "put": {
         "summary": "Atualiza um Pokémons",
         "description": "Essa rota será responsável por Atualizar um pokémon, buscando pelo ID.",
-        "tags": ["Rotas Pokemons"],
+        "tags": ["Rotas Pokémons"],
         "parameters": [
           {
             "name": "body",
