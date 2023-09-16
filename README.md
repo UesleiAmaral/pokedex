@@ -50,6 +50,12 @@ npm install
 ```
 npm start
 ```
+
+3. Abra o navegador e digite:
+
+```
+localhost:8080
+```
 ## ✈️ Rotas Pokedex
 
 <a href="https://pokedex-api-4hn5.onrender.com/" target="blank_">URL-BASE [ https://pokedex-api-4hn5.onrender.com/ ] </a>
