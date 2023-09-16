@@ -11,7 +11,6 @@
 
 <img src="https://i.ibb.co/FK8WJFv/image-2.png" alt="image-2" border="0">
 
-
 > Projeto Pessoal, dados retirados da API [ <a href="https://pokeapi.co" target="blank_">pokeapi.co</a> ]. Filtrado e organizado por mim. 😃
 
 ## 💻 Pré-requisitos
@@ -80,11 +79,13 @@ localhost:8080
 
 > <img src="https://i.ibb.co/JFsnmv8/image-8.png" alt="image-8" border="0">
 
+
 ### Essa rota será responsável por DELETAR um item buscando pelo ID. 
 ### ⚠️ Atenção delete apenas se tiver certeza, essa operação é irreversível. 
 ` v1/deletePokemon/{id}`
 
 > <img src="https://i.ibb.co/9WZqgPb/image-9.png" alt="image-9" border="0">
+
 
 ### Essa rota será responsável por Atualizar um pokémon, buscando pelo ID. 
 ` /updatePokemon/`

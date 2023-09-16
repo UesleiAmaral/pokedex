@@ -53,18 +53,17 @@ export const updatePokemon = async (id, data) => {
   } catch (error) {
     console.log("Error " + error);
   }
-
 };
 
 export const deletePokemon = async (id) => {
   try {
     //FILTRAR SE EXISTE ESTE ID
-    const itemFilter = await filterPokemon(id)
+    const itemFilter = await filterPokemon(id);
     if (itemFilter.length === 1) {
       // SE EXISTE! DELETA
       const data = await supabase.from("pokemons").delete().eq("id", id);
       // E RETORNA
-      console.log(data)
+      console.log(data);
       return {
         status: "200",
         statusMsg: "OK",
@@ -86,17 +85,15 @@ export const postPokemonUser = async (pokemon, is_user) => {
   try {
     const data = await supabase
       .from("pokemons")
-      .insert([
-        {
-          id: pokemons.length + 2,
-          name: pokemon.name,
-          image: pokemon.image,
-          abilities: [pokemon.abilities],
-          stats: [pokemon.stats],
-          types: [pokemon.types],
-          is_user: is_user,
-        },
-      ])
+      .insert({
+        id: pokemons.length + 2,
+        name: pokemon.name,
+        image: pokemon.image,
+        abilities: [pokemon.abilities],
+        stats: [pokemon.stats],
+        types: [pokemon.types],
+        is_user: is_user,
+      })
       .select();
     return data;
   } catch (error) {
