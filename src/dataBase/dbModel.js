@@ -93,7 +93,7 @@ export const postPokemonUser = async (pokemon, is_user) => {
           image: pokemon.image,
           abilities: [pokemon.abilities],
           stats: [pokemon.stats],
-          types: [pokemon.types],
+          types: pokemon.types,
           is_user: is_user,
         },
       )
