@@ -26,7 +26,7 @@ export const updateDB = async (pokemon, is_user) => {
 
 export const readPokemons = async () => {
   try {
-    const { data, error } = await supabase.from("pokemons").select();
+    const { data, error } = await supabase.from("pokemons").select().order('id', {ascending: true});
 
     return data;
   } catch (error) {
