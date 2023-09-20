@@ -42,9 +42,9 @@ export const updatePokemon = async (id, data) => {
         {
           name: data.name,
           image: data.image,
-          abilities: [data.abilities],
-          stats: [data.stats],
-          types: [data.types],
+          abilities: data.abilities,
+          stats: data.stats,
+          types: data.types,
         },
       ])
       .eq("id", id);
@@ -64,7 +64,6 @@ export const deletePokemon = async (id) => {
       // SE EXISTE! DELETA
       const data = await supabase.from("pokemons").delete().eq("id", id);
       // E RETORNA
-      console.log(data)
       return {
         status: "200",
         statusMsg: "OK",
