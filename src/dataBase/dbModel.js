@@ -38,7 +38,7 @@ export const updatePokemon = async (id, data) => {
   try {
     const error = await supabase
       .from("pokemons")
-      .update([
+      .update(
         {
           name: data.name,
           image: data.image,
@@ -46,7 +46,7 @@ export const updatePokemon = async (id, data) => {
           stats: data.stats,
           types: data.types,
         },
-      ])
+      )
       .eq("id", id);
 
     return error;
